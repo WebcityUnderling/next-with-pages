@@ -1,0 +1,13 @@
+{
+    "fallback_meta": {
+        "title": "Welcome to the website",
+        "description": "a description if there is no other",
+        "image": "/assets/global/meta-image_en.jpg"
+    },
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "team": "Team",
+        "careers": "Careers"
+    }
+}

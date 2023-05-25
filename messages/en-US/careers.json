@@ -1,0 +1,20 @@
+{
+    "meta": {
+        "title": "Join Our Team - Exciting Career Opportunities at [Company Name]",
+        "description": "Explore rewarding career opportunities with [Company Name]. Be part of a collaborative and innovative environment where you can contribute your skills and expertise to shape the future of iPad app development."
+    },
+    "title": "Careers",
+    "description": "Are you passionate about cutting-edge technology and innovative solutions? Join our dynamic team at [Company Name] and be part of an exciting journey to create groundbreaking iPad apps that make a difference. We believe in fostering a collaborative and inclusive work environment, where creativity and ideas flourish. As a member of our team, you'll have the opportunity to work on challenging projects, expand your skillset, and contribute to the success of our company. If you're ready to unleash your potential and be part of a team that pushes the boundaries of app development, we invite you to explore our current job openings below and take the next step in your career.",
+
+    "positions_title": "Open Positions",
+
+    "filters": {
+        "title": "Filter by Team",
+        "categories": {
+            "all": "All",
+            "marketing": "Marketing",
+            "product": "Product",
+            "operations": "Operations"
+        }
+    }
+}

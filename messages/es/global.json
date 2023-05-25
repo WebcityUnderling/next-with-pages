@@ -1,0 +1,13 @@
+{
+    "fallback_meta": {
+        "title": "Bienvenido/a a [Nombre de la empresa] - Desata el poder de las aplicaciones para iPad",
+        "description": "Descubre el mundo de las innovadoras y amigables aplicaciones para iPad en [Nombre de la empresa]. Experimenta la combinación perfecta de creatividad y funcionalidad que transformará la forma en que utilizas tu iPad.",
+        "image": "/assets/global/meta-image_es.jpg"
+    },
+    "nav": {
+        "home": "Hogar",
+        "about": "Acerca de",
+        "team": "Equipo",
+        "careers": "Carreras"
+    }
+}

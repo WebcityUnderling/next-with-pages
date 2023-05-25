@@ -1,0 +1,20 @@
+{
+    "meta": {
+        "title": "Únete a nuestro equipo: emocionantes oportunidades de carrera en [Nombre de la empresa]",
+        "description": "Explora las gratificantes oportunidades de carrera con [Nombre de la empresa]. Sé parte de un entorno colaborativo e innovador donde podrás aportar tus habilidades y experiencia para dar forma al futuro del desarrollo de aplicaciones para iPad."
+    },
+    "title": "Carreras",
+    "description": "¿Eres apasionado/a por la tecnología de vanguardia y soluciones innovadoras? Únete a nuestro equipo dinámico en [Nombre de la empresa] y sé parte de un emocionante viaje para crear aplicaciones revolucionarias para iPad que marquen la diferencia. Creemos en fomentar un entorno de trabajo colaborativo e inclusivo, donde la creatividad y las ideas florezcan. Como miembro de nuestro equipo, tendrás la oportunidad de trabajar en proyectos desafiantes, ampliar tus habilidades y contribuir al éxito de nuestra empresa. Si estás listo/a para liberar tu potencial y formar parte de un equipo que rompe los límites del desarrollo de aplicaciones, te invitamos a explorar nuestras vacantes actuales a continuación y dar el próximo paso en tu carrera.",
+
+    "positions_title": "Posiciones abiertas",
+
+    "filters": {
+        "title": "Filtrar por equipo",
+        "categories": {
+            "all": "Todo",
+            "marketing": "Marketing",
+            "product": "Producto",
+            "operations": "Operaciones"
+        }
+    }
+}

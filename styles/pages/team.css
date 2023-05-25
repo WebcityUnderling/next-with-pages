@@ -1,0 +1,19 @@
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+    margin: 2rem 0;
+}
+
+@media (min-width: 480px) {
+    .team-members {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .team-members {
+        grid-gap: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

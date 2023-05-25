@@ -1,6 +1,6 @@
 import PageLayout from '@/components/global/PageLayout';
-import { completeMessagesTree } from '@/utils/i18n'
 
+import { completeMessagesTree } from '@/utils/i18n'
 import {useTranslations} from 'next-intl';
 
 export async function getStaticProps({locale}) {
@@ -12,12 +12,11 @@ export async function getStaticProps({locale}) {
   };
 }
 
-export default function Home() {
+export default function Careers() {
   const t = useTranslations();
   const meta = {
     title: t('home.meta.title'),
-    description: t('home.meta.description'),
-    image: t('home.meta.image')
+    description: t('home.meta.description')
   }
 
   return (
