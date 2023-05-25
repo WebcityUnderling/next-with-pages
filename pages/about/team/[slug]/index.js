@@ -1,5 +1,6 @@
 import PageLayout from "@/components/global/PageLayout";
 import { completeMessagesTree } from "@/utils/i18n";
+import styles from '@/styles/employee.module.css'
 import fido from '@/utils/fido'
 
 export const getStaticPaths = async () => {
@@ -19,6 +20,7 @@ export async function getStaticProps({ locale, params }) {
   const messages = await completeMessagesTree(locale);
   const { data } = await fido.get(`http://localhost:3000/api/teammember?slug=${params.slug}`, params)
   
+
   return {
     props: {
       messages,
@@ -50,22 +52,24 @@ export default function TeamMember({employee}) {
   return (
     <PageLayout meta={meta}>
       <div className="container">
-        <aside className="employee-page__sidebar">
-            <div className="avatar">
-              <span>{initials}</span>
+        <div className={`${styles["employee"]} ${styles[`employee--${employee.team.toLowerCase()}`]}`}>
+          <aside className={styles["employee-page__sidebar"]}>
+              <div className={styles["avatar"]}>
+                <span>{initials}</span>
+              </div>
+              <ul className="employee-page__sidebar-data">
+                <li><span>Team:</span> {employee.team}</li>
+                <li><span>Position:</span> {employee.position}</li>
+                <li><span>Time at company:</span> {employee.yearsAtCompany} years</li>
+              </ul>
+          </aside>
+          <section>
+            <div className={`${styles["employee-page__content"]} copy-block`}>
+              <h1>{employee.name}</h1>
+              <p>{blurb}</p>
             </div>
-            <ul class="employee-page__sidebar-data">
-              <li><span>Team:</span> {employee.team}</li>
-              <li><span>Position:</span> {employee.position}</li>
-              <li><span>Time at company:</span> {employee.yearsAtCompany} years</li>
-            </ul>
-        </aside>
-        <section>
-          <div className="employee-page__content">
-            <h1>{employee.name}</h1>
-            <p>{blurb}</p>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </PageLayout>
   )
