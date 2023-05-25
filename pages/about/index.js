@@ -14,8 +14,13 @@ export async function getStaticProps({locale}) {
 
 export default function About() {
   const t = useTranslations();
+
+  const meta = {
+    title: t('about.meta.title'),
+    description: t('about.meta.description'),
+  }
   return (
-    <PageLayout>
+    <PageLayout meta={meta}>
       <h1>{ t('about.title') }</h1>
       <div dangerouslySetInnerHTML={{__html: t.raw('about.description')}}></div>
     </PageLayout>

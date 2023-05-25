@@ -4,7 +4,7 @@ import { completeMessagesTree } from '@/utils/i18n'
 import {useTranslations} from 'next-intl';
 
 export async function getStaticProps({locale}) {
-  const messages = await completeMessagesTree(locale, 'home');
+  const messages = await completeMessagesTree(locale, 'careers');
   return {
     props: {
       messages,
@@ -15,14 +15,14 @@ export async function getStaticProps({locale}) {
 export default function Careers() {
   const t = useTranslations();
   const meta = {
-    title: t('home.meta.title'),
-    description: t('home.meta.description')
+    title: t('careers.meta.title'),
+    description: t('careers.meta.description')
   }
 
   return (
     <PageLayout meta={meta}>
-      <h1>{ t('home.title') }</h1>
-      <p>{ t('home.description') }</p>
+      <h1>{ t('careers.title') }</h1>
+      <p>{ t('careers.description') }</p>
     </PageLayout>
   )
 }
