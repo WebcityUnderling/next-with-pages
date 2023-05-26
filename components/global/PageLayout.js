@@ -3,16 +3,25 @@ import Link from 'next/link'
 import {useTranslations} from 'next-intl';
 import styles from '@/styles/Home.module.css'
 import LocaleSwitcher from '@/components/global/LocaleSwitcher';
+import { useRouter } from 'next/router';
 
 export default function PageLayout({children, meta}) {
   const t = useTranslations();
 
-  // 
   const title = meta?.title ? meta.title : t('global.fallback_meta.title');
   const description = meta?.description ? meta.description : t('global.fallback_meta.description');
   const image  = meta?.image ? meta.image : t('global.fallback_meta.image');
-
   const twitterCard = meta?.twitterCard ? meta.twitterCard : "summary_large_image"
+
+  // locale metadata configuration
+  const {locale, locales, defaultLocale, domainLocales, asPath} = useRouter();
+  let availableLocales = domainLocales;
+  const defaultDomain = domainLocales.find(l => l.defaultLocale == (meta?.locales ? meta.locales[0] : defaultLocale)).domain;
+  const canonicalDomain = domainLocales.find(l => l.defaultLocale == locale).domain;
+  
+  if (meta.locales) {
+    availableLocales = domainLocales.filter(l => meta.locales.includes(l.defaultLocale));
+  }
 
   return (
     <>
@@ -33,6 +42,15 @@ export default function PageLayout({children, meta}) {
 
         {/* Other Meta */}
         <meta name="twitter:card" content={twitterCard}/>
+
+        {/* Relative Links */}
+        <meta property="og:locale" content={locale}/>
+        <link rel="alternate" href={`${defaultDomain}${asPath}`} hrefLang="x-default"/>
+        <link rel="canonical" href={`${canonicalDomain}${asPath}`}/>
+        {availableLocales.map((l, index) => (
+          <link key={index} rel="alternate" href={`${l.domain}${asPath}`} hrefLang={l.defaultLocale}/>
+        ))}
+
       </Head>
       <header>
         <div className='container'>
@@ -51,9 +69,6 @@ export default function PageLayout({children, meta}) {
       <main className={`${styles.main}`}>
         {children}
       </main>
-      <footer>
-        <p>I am the footer</p>
-      </footer>
     </>
   );
 }

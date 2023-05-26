@@ -24,6 +24,7 @@ export default function Team({team}) {
   const meta = {
     title: t('about.team.meta.title'),
     description: t('about.team.meta.description'),
+    locales: ['en-US']
   }
 
   return (

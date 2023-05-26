@@ -19,7 +19,6 @@ export const getStaticPaths = async () => {
 export async function getStaticProps({ locale, params }) {
   const messages = await completeMessagesTree(locale);
   const { data } = await fido.get(`http://localhost:3000/api/teammember?slug=${params.slug}`, params)
-  
 
   return {
     props: {
