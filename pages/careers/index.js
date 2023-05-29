@@ -38,8 +38,12 @@ export default function Careers({locale}) {
     {/* don't display page until rediect has happened. */}
     {locale === 'en-US' &&
       <PageLayout meta={meta}>
-      <h1>{ t('careers.title') }</h1>
-      <p>{ t('careers.description') }</p>
+        <div className="container">
+          <div className='copy-block'>
+            <h1>{ t('careers.title') }</h1>
+            <p>{ t('careers.description') }</p>
+          </div>
+        </div>
       </PageLayout>
     }
     </>

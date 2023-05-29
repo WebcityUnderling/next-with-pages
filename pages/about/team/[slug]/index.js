@@ -1,4 +1,5 @@
 import PageLayout from "@/components/global/PageLayout";
+import Link from "next/link";
 import { completeMessagesTree } from "@/utils/i18n";
 import styles from '@/styles/employee.module.css'
 import fido from '@/utils/fido'
@@ -44,6 +45,7 @@ export default function TeamMember({employee}) {
 
   const meta = {
     title: `${employee.name} – App Company`,
+    locales: ['en-US']
   }
 
   const initials = employee.name.split(' ').map((word) => word[0]).join('');
@@ -51,6 +53,7 @@ export default function TeamMember({employee}) {
   return (
     <PageLayout meta={meta}>
       <div className="container">
+        <Link href="/about/team" className="btn">Back</Link>
         <div className={`${styles["employee"]} ${styles[`employee--${employee.team.toLowerCase()}`]}`}>
           <aside className={styles["employee-page__sidebar"]}>
               <div className={styles["avatar"]}>

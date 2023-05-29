@@ -29,10 +29,14 @@ export default function Team({team}) {
 
   return (
     <PageLayout meta={meta}>
-      <div className="team-members">
-        {team.map((person, index) => {
-          return <PersonCard key={index} person={person} />;
-        })}
+      <div className="container">
+          <div className='copy-block'>
+            <div className="team-members">
+              {team.map((person, index) => {
+                return <PersonCard key={index} person={person} />;
+              })}
+            </div>
+          </div>
       </div>
     </PageLayout>
   );

@@ -21,8 +21,12 @@ export default function About() {
   }
   return (
     <PageLayout meta={meta}>
-      <h1>{ t('about.title') }</h1>
-      <div dangerouslySetInnerHTML={{__html: t.raw('about.description')}}></div>
+      <div className="container">
+        <div className='copy-block'>
+          <h1>{ t('about.title') }</h1>
+          <div dangerouslySetInnerHTML={{__html: t.raw('about.description')}}></div>
+        </div>
+      </div>
     </PageLayout>
   )
 }
