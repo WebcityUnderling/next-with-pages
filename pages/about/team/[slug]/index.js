@@ -1,7 +1,7 @@
 import PageLayout from "@/components/global/PageLayout";
 import Link from "next/link";
 import { completeMessagesTree } from "@/utils/i18n";
-import styles from '@/styles/employee.module.css'
+import styles from '@/styles/pages/employee.module.css'
 import fido from '@/utils/fido'
 
 export const getStaticPaths = async () => {

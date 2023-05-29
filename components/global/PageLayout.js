@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link'
 import {useTranslations} from 'next-intl';
-import styles from '@/styles/Home.module.css'
 import LocaleSwitcher from '@/components/global/LocaleSwitcher';
 import { useRouter } from 'next/router';
+import styles from "@/styles/components/header.module.css"
 
 export default function PageLayout({children, meta}) {
   const t = useTranslations();
@@ -14,7 +14,7 @@ export default function PageLayout({children, meta}) {
   const twitterCard = meta?.twitterCard ? meta.twitterCard : "summary_large_image"
 
   // locale metadata configuration
-  const {locale, locales, defaultLocale, domainLocales, asPath} = useRouter();
+  const {locale, defaultLocale, domainLocales, asPath} = useRouter();
   let availableLocales = domainLocales;
   const defaultDomain = domainLocales.find(l => l.defaultLocale == (meta?.locales ? meta.locales[0] : defaultLocale)).domain;
   const canonicalDomain = domainLocales.find(l => l.defaultLocale == locale).domain;
@@ -52,8 +52,8 @@ export default function PageLayout({children, meta}) {
         ))}
 
       </Head>
-      <header>
-        <div className='container'>
+      <header className={styles.header}>
+        <div className={`container ${styles["header__container"]}`}>
           <nav>
             
             <ul>

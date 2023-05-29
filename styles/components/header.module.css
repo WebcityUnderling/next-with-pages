@@ -1,20 +1,20 @@
-header {
+.header {
     padding: 16px 0;
 }
 
-header .container{
+.header__container{
     display: flex;
     gap: 36px;
     justify-content: space-between;
 }
 
-header nav ul{
+.header nav ul{
     list-style-type: none;
     display: flex;
     gap: 16px;
 }
 
-header nav li a{
+.header nav li a{
     font-size: 18px;
     text-transform: uppercase;
     padding: 4px 8px;

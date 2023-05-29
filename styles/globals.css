@@ -1,9 +1,6 @@
 /* Components */
-@import './components/personcard.css';
-@import './components/header.css';
-
-/* Pages */
-@import './pages/team.css';
+/* @import './components/personcard.css'; */
+/* @import './components/header.css'; */
 
 :root {
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -25,7 +22,7 @@
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 16, 16, 16;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
@@ -50,6 +47,16 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4em 0;
+  min-height: 100vh;
+}
+
 
 a {
   color: inherit;
@@ -82,7 +89,8 @@ a {
 }
 
 .container {
-  width: var(--max-width);
+  max-width: var(--max-width);
+  width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
 }
