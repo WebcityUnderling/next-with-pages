@@ -1,19 +1,18 @@
 import PageLayout from '@/components/global/PageLayout';
 import { useRouter } from 'next/router';
-// import { usePathname } from 'next-intl/client';
 import { completeMessagesTree } from '@/utils/i18n'
 import {useTranslations} from 'next-intl';
 import { useEffect } from 'react';
+import CareersList from '@/components/pages/careers/CareersList';
 
 export async function getStaticProps({locale}) {
-  
   const messages = await completeMessagesTree(locale, 'careers');
-   
+  
+
   return {
     props: {
       locale,
-      messages,
-    }
+      messages,    }
   };
 }
 
@@ -43,6 +42,7 @@ export default function Careers({locale}) {
             <h1>{ t('careers.title') }</h1>
             <p>{ t('careers.description') }</p>
           </div>
+          <CareersList/>
         </div>
       </PageLayout>
     }
