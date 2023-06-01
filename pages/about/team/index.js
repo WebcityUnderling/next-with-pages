@@ -9,7 +9,7 @@ team.sort((a, b) => {
     return b.yearsAtCompany - a.yearsAtCompany;
 }) //sort team by yearsAtCompany descending
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const messages = await completeMessagesTree(locale, 'about');
   return {
     props: {

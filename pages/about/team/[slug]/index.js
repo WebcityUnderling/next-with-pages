@@ -8,6 +8,8 @@ export async function getServerSideProps({ locale, params }) {
   const messages = await completeMessagesTree(locale);
   const { data } = await fido.get(`http://localhost:3000/api/teammember?slug=${params.slug}`, params)
 
+  if (!data.slug) return {notFound: true};
+
   return {
     props: {
       messages,
@@ -63,5 +65,3 @@ export default function TeamMember({employee}) {
     </PageLayout>
   )
 }
-
-

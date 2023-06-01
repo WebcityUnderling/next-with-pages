@@ -3,7 +3,7 @@ import { completeMessagesTree } from "@/utils/i18n";
 
 import { useTranslations } from "next-intl";
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const messages = await completeMessagesTree(locale, "home");
   return {
     props: {
