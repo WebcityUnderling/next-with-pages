@@ -61,6 +61,7 @@ export default function PageLayout({children, meta}) {
               <li><Link href="/about">{t('global.nav.about')}</Link></li>
               <li><Link href="/about/team">{t('global.nav.team')}</Link></li>
               <li><Link href="/careers">{t('global.nav.careers')}</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
             </ul>
           </nav>
           <LocaleSwitcher/>

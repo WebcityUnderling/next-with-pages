@@ -1,7 +1,5 @@
 import PageLayout from '@/components/global/PageLayout';
 import { completeMessagesTree } from '@/utils/i18n'
-
-// import { useEffect } from 'react';
 import fido from '@/utils/fido';
 
   
@@ -19,7 +17,7 @@ export const getServerSideProps = async ({params, locale}) => {
     }
 }
 
-export default function Careers({position}) {
+export default function Position({position}) {
   return (
     <>
     <PageLayout>
