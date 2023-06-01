@@ -4,20 +4,7 @@ import { completeMessagesTree } from "@/utils/i18n";
 import styles from '@/styles/pages/employee.module.css'
 import fido from '@/utils/fido'
 
-export const getStaticPaths = async () => {
-  return {
-    paths: [
-      {
-        params: {
-          slug: 'next.js',
-        },
-      }, // See the "paths" section below
-    ],
-    fallback: true, // false or "blocking"
-  };
-};
-
-export async function getStaticProps({ locale, params }) {
+export async function getServerSideProps({ locale, params }) {
   const messages = await completeMessagesTree(locale);
   const { data } = await fido.get(`http://localhost:3000/api/teammember?slug=${params.slug}`, params)
 

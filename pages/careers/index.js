@@ -1,31 +1,22 @@
 import PageLayout from '@/components/global/PageLayout';
-import { useRouter } from 'next/router';
 import { completeMessagesTree } from '@/utils/i18n'
 import {useTranslations} from 'next-intl';
-import { useEffect } from 'react';
 import CareersList from '@/components/pages/careers/CareersList';
 
-export async function getStaticProps({locale}) {
+export async function getServerSideProps({locale}) {
   const messages = await completeMessagesTree(locale, 'careers');
   
-
+  if (locale != 'en-US') return {redirect: {permanent: true, destination: '/careers', params: {locale: 'en-US'} }}
   return {
     props: {
       locale,
-      messages,    }
+      messages,   
+    }
   };
 }
 
 export default function Careers({locale}) {
-  const router = useRouter();
   const t = useTranslations();
-  
-  //redirect if page is not available in the locale
-  useEffect(() => {
-    if (locale != 'en-US') {
-      router.push(router.asPath, router.asPath, {locale: 'en-US'});
-    }
-  }) 
   
   const meta = {
     title: t('careers.meta.title'),
@@ -34,8 +25,6 @@ export default function Careers({locale}) {
 
   return (
     <>
-    {/* don't display page until rediect has happened. */}
-    {locale === 'en-US' &&
       <PageLayout meta={meta}>
         <div className="container">
           <div className='copy-block'>
@@ -45,7 +34,6 @@ export default function Careers({locale}) {
           <CareersList/>
         </div>
       </PageLayout>
-    }
     </>
   )
 }

@@ -80,7 +80,6 @@ export default function CareersList() {
                 {loadingMore ? 'Loading' : 'Load More'}
               </button>
             )}
-            {/* {positionsPage} */}
           </div>
         </>
       ) : (

@@ -19,7 +19,7 @@ export default function PageLayout({children, meta}) {
   const defaultDomain = domainLocales.find(l => l.defaultLocale == (meta?.locales ? meta.locales[0] : defaultLocale)).domain;
   const canonicalDomain = domainLocales.find(l => l.defaultLocale == locale).domain;
   
-  if (meta.locales) {
+  if (meta?.locales) {
     availableLocales = domainLocales.filter(l => meta.locales.includes(l.defaultLocale));
   }
 
