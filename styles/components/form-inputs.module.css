@@ -1,0 +1,89 @@
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4px;
+}
+
+fieldset.input-group {
+    border: none;
+}
+
+.input-group__children {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.input-group__label {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #dedede;
+    padding: 0 12px;
+}
+
+.input-group__input {
+    height: 36px;
+    border-radius: 17px;
+    background: #111;
+    border: 2px solid #444;
+    padding: 0 10px;
+}
+
+.input-group__error {
+    padding: 0 16px;
+    color: var(--product-color);
+    font-size: 0.65375rem;
+    font-weight: 600;
+    margin-top: 8px;;
+}
+
+.input-group__select {
+    height: 36px;
+    border-radius: 17px;
+    background: #111;
+    border: 2px solid #444;
+    padding: 0 42px 0 10px;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAzMiAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMxLjU0IDIuNzEwMDFMMTYgMThMMC40Nzk5OTggMi43MTAwMUMwLjI1NzMwOCAyLjQ5MjcyIDAuMTA0MTk3IDIuMjE0MTggMC4wNDAxMDE0IDEuOTA5NzJDLTAuMDIzOTk0NyAxLjYwNTI2IDAuMDAzODE0MjcgMS4yODg2MyAwLjExOTk5OCAxLjAwMDAxQzAuMjI2MDk3IDAuNzU5MDIyIDAuMzg4OTk1IDAuNTQ3MzI5IDAuNTk0NzU3IDAuMzgzMDM3QzAuODAwNTE5IDAuMjE4NzQ0IDEuMDQzMDIgMC4xMDY3NDQgMS4zMDE1MSAwLjA1NjYxODdDMS41NiAwLjAwNjQ5MzE1IDEuODI2NzkgMC4wMTk3MzQxIDIuMDc5MDQgMC4wOTUyMDkxQzIuMzMxMyAwLjE3MDY4NCAyLjU2MTUyIDAuMzA2MTQ2IDIuNzUgMC40OTAwMDVMMTYgMTMuNTJMMjkuMjYgMC41MjAwMDZDMjkuNTY0NiAwLjI1ODQwNiAyOS45NTY1IDAuMTIwOTAyIDMwLjM1NzcgMC4xMzQ3ODdDMzAuNzU5IDAuMTQ4NjcyIDMxLjE0MDQgMC4zMTI5MyAzMS40MjYyIDAuNTk0OTU5QzMxLjcxMiAwLjg3Njk4NyAzMS44ODE0IDEuMjU2MTcgMzEuOTAwNiAxLjY1NzI0QzMxLjkxOTggMi4wNTgzIDMxLjc4NzUgMi40NTE5NCAzMS41MyAyLjc2MDAxTDMxLjU0IDIuNzEwMDFaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K');
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 12px auto;
+    position: relative;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.input-group__inline-input {
+    padding: 0 16px;
+    display: flex;
+}
+
+.input-group__inline-input a {
+    color: var(--product-color);
+    text-decoration: underline;
+}
+
+.input-group__inline-input input {
+    margin-right: 12px;
+}
+
+.input-group__radio {
+    
+}
+
+.input-group__checkbox {
+    
+}
+
+.input-group__textarea {
+    resize: none;
+    border-radius: 17px;
+    background: #111;
+    border: 2px solid #444;
+    padding: 16px;
+    height: 200px;
+}

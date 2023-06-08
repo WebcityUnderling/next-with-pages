@@ -1,0 +1,16 @@
+.contact-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: grid;
+    gap: 24px;
+}
+
+.contact-form h1 {
+    margin-bottom: 24px;
+}
+
+.privacy {
+    border-top: 1px solid #777;
+    padding-top: 24px!important;
+}
