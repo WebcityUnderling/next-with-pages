@@ -61,7 +61,7 @@ export default function PageLayout({children, meta}) {
             <ul>
               <li className={router.pathname == "/" && "active"}><Link href="/">{t('global.nav.home')}</Link></li>
               <li className={router.pathname == "/about" && "active"}><Link href="/about">{t('global.nav.about')}</Link></li>
-              <li className={router.pathname == "/about/team" && "active"}><Link href="/about/team">{t('global.nav.team')}</Link></li>
+              <li className={router.pathname.includes("/about/team") && "active"}><Link href="/about/team">{t('global.nav.team')}</Link></li>
               <li className={router.pathname == "/careers" && "active"}><Link href="/careers">{t('global.nav.careers')}</Link></li>
               <li className={router.pathname == "/contact" && "active"}><Link href="/contact">Contact</Link></li>
             </ul>
