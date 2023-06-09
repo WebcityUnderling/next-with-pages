@@ -11,6 +11,7 @@ team.sort((a, b) => {
 
 export async function getServerSideProps({ locale }) {
   const messages = await completeMessagesTree(locale, 'about');
+  if (locale != 'en-US') return {redirect: {permanent: true, destination: '/es', params: {locale: `${locale}`} }}
   return {
     props: {
       messages,
@@ -32,6 +33,8 @@ export default function Team({team}) {
     <PageLayout meta={meta}>
       <div className="container">
           <div className='copy-block'>
+            <h1>Team</h1>
+            <p>Fun fact! You can only view this page in English. If you try and visit in Spanis, it will redirect to the homepage.</p>
             <div className={styles["team-members"]}>
               {team.map((person, index) => {
                 return <PersonCard key={index} person={person} />;
