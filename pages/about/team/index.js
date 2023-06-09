@@ -34,7 +34,7 @@ export default function Team({team}) {
       <div className="container">
           <div className='copy-block'>
             <h1>Team</h1>
-            <p>Fun fact! You can only view this page in English. If you try and visit in Spanis, it will redirect to the homepage.</p>
+            <p>Fun fact! You can only view this page in English. If you try and visit in Spanish, it will redirect to the homepage.</p>
             <div className={styles["team-members"]}>
               {team.map((person, index) => {
                 return <PersonCard key={index} person={person} />;
