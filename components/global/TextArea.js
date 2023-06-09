@@ -15,7 +15,7 @@ export default function TextArea(props) {
                 {...inputProps}            
                 type={inputProps?.type ?? 'text'}
             />
-            {props?.error && (<p className={styles['input-group__error']}>{props.error}</p>)}
+            {props?.error && (<p className={styles['input-group__error-message']}>{props.error}</p>)}
         </div>
     )
 }

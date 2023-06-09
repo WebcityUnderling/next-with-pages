@@ -8,14 +8,14 @@ export default function TextInput(props) {
     delete inputProps.error
 
     return (
-        <div className={`${styles['input-group']} ${props?.className ?? ''}`}>
+        <div className={`${styles['input-group']} ${props?.className ?? '' } ${props?.error && styles['input-group__error']}`}>
             <label id={props?.htmlFor} className={styles['input-group__label']}>{props?.label}</label>
             <input
                 className={styles['input-group__input']}
                 {...inputProps}            
                 type={inputProps?.type ?? 'text'}
             />
-            {props?.error && (<p className={styles['input-group__error']}>{props.error}</p>)}
+            {props?.error && (<p className={styles['input-group__error-message']}>{props.error}</p>)}
         </div>
     )
 }

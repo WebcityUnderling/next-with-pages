@@ -3,10 +3,15 @@
     flex-direction: column;
     width: 100%;
     gap: 4px;
+    padding: 0 12px;
 }
 
 fieldset.input-group {
     border: none;
+}
+
+fieldset.input-group legend{
+    float: left;
 }
 
 .input-group__children {
@@ -31,12 +36,18 @@ fieldset.input-group {
     padding: 0 10px;
 }
 
-.input-group__error {
+.input-group__error-message {
     padding: 0 16px;
     color: var(--product-color);
     font-size: 0.65375rem;
     font-weight: 600;
     margin-top: 8px;;
+}
+
+.input-group__error {
+    background: rgba(46, 32, 17, 0.5);
+    padding: 12px;
+    border-radius: 12px;
 }
 
 .input-group__select {

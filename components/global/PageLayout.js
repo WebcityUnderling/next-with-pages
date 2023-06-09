@@ -5,6 +5,8 @@ import LocaleSwitcher from '@/components/global/LocaleSwitcher';
 import { useRouter } from 'next/router';
 import styles from "@/styles/components/header.module.css"
 
+
+
 export default function PageLayout({children, meta}) {
   const t = useTranslations();
 

@@ -18,6 +18,7 @@ export default function App({Component, pageProps}) {
       <NextIntlProvider messages={pageProps.messages}>
         <Provider store={store}>
           <Component {...pageProps} />
+          <div id="modals-go-here"></div>
         </Provider>
       </NextIntlProvider>
     </>
