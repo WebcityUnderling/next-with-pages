@@ -5,8 +5,6 @@ import LocaleSwitcher from '@/components/global/LocaleSwitcher';
 import { useRouter } from 'next/router';
 import styles from "@/styles/components/header.module.css"
 
-
-
 export default function PageLayout({children, meta}) {
   const t = useTranslations();
   const router = useRouter();
@@ -62,7 +60,7 @@ export default function PageLayout({children, meta}) {
               <li className={router.pathname == "/" && "active"}><Link href="/">{t('global.nav.home')}</Link></li>
               <li className={router.pathname == "/about" && "active"}><Link href="/about">{t('global.nav.about')}</Link></li>
               <li className={router.pathname.includes("/about/team") && "active"}><Link href="/about/team">{t('global.nav.team')}</Link></li>
-              <li className={router.pathname == "/careers" && "active"}><Link href="/careers">{t('global.nav.careers')}</Link></li>
+              <li className={router.pathname.includes("/careers") && "active"}><Link href="/careers">{t('global.nav.careers')}</Link></li>
               <li className={router.pathname == "/contact" && "active"}><Link href="/contact">Contact</Link></li>
             </ul>
           </nav>
