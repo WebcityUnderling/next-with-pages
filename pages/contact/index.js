@@ -62,78 +62,59 @@ export default function ContactPage() {
   const [triggerSendingFail, setTriggerSendingFail] = useState(true);
   const [sent, setSent] = useState(false);
 
+  const formData = {
+    name,
+    email,
+    emailConfirm,
+    reason,
+    newsOptIn,
+    newsTypes,
+    privacy,
+    message,
+    triggerSendingFail,
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrors({});
-    const formData = {
-      name,
-      email,
-      emailConfirm,
-      reason,
-      newsOptIn,
-      newsTypes,
-      privacy,
-      message,
-      triggerSendingFail,
-    };
-    try {
-      const errorCheck = await checkForErrors(formData);
-      if (errorCheck.filter((e) => e != undefined) == 0) {
-        setSubmitting(true);
-        try {
-          const res = await fido.post('/api/contact-form', formData)
-          setSent(true);
-          setSubmitting(false);
-
-        } catch (e){
-          if (e.response.status == 422) {
-            setErrors(e.response.data.errors)
-          }
-          setServerErrorModalIsOpen(true);
-          setSubmitting(false);
-        }
-      } else {
-        // Set validation Errors
-        setValidationModallIsOpen(true);
-        let foundErrors = {};
-        for (const [key, value] of Object.entries(
-          errorCheck.filter((e) => e != undefined)
-        )) {
-          foundErrors = { ...foundErrors, ...value };
-        }
-        setErrors({ ...foundErrors });
+    let clientValidationErrors = await validateFormData(formData);
+    
+    if (!clientValidationErrors.length) {
+      setSubmitting(true);
+      try {
+        const res = await fido.post("/api/contact-form", formData);
+        setSent(true);
+      } catch (e) {
+        if (e.response.status == 422) setErrors(e.response.data.errors);
+        setServerErrorModalIsOpen(true);
       }
-    } catch (e) {
-      console.error(e);
+      setSubmitting(false);
+    } else {
+      let submissionErrors = {}
+      for (const [key, value] of Object.entries(clientValidationErrors)) {
+        submissionErrors = { ...submissionErrors, ...value };
+      }
+      setValidationModallIsOpen(true);
+      setErrors({ ...submissionErrors });
     }
+    
   };
 
-  const checkForErrors = async (formData) => {
-    const checkNewsTypes = new Promise((resolve) => {
-      if (formData.newsOptIn == "true") {
-        newsTypes.length > 0
-          ? resolve()
-          : resolve({ pick_some_news: "You haven't chosen any news types!" });
-      }
-      resolve();
-    });
-
-    const checkEmailsMatch = new Promise((resolve) => {
-      if (email != emailConfirm) {
-        resolve({ email_confirmation: "The emails you entered don't match!" });
-      }
-      resolve();
-    });
+  // client-side form validation
+  const validateFormData = async () => {
+    const checkNewsTypes = new Promise((resolve) => resolve((formData.newsOptIn == "true" && newsTypes.length == 0 ) && { pick_some_news: "You haven't chosen any news types!" }));
+    const checkEmailsMatch = new Promise((resolve) => resolve((email !== emailConfirm) && { email_confirmation: "The emails you entered don't match!" }));
 
     try {
       const res = await Promise.all([checkEmailsMatch, checkNewsTypes]);
-      return res;
+      return res.filter(e => e != false);
     } catch (e) {
       return e;
     }
   };
 
-  const handleEmailMatch = (e) => {
+  // Check emails match on confirm blur (overkill, but I wanted to test how it works)
+  const handleEmailConfirmationblur = () => {
     if (emailConfirm != email)
       setErrors({
         ...errors,
@@ -181,7 +162,7 @@ export default function ContactPage() {
               <TextInput
                 htmlFor="confirm_email"
                 label="Confirm Email"
-                onBlur={handleEmailMatch}
+                onBlur={handleEmailConfirmationblur}
                 onInput={(e) => setEmailConfirm(e.target.value)}
                 type="email"
                 required
@@ -270,7 +251,7 @@ export default function ContactPage() {
               />
 
               {Object.entries(errors).length > 0 && (
-                <div className={styles['errors']}>
+                <div className={styles["errors"]}>
                   <h3>Fix these Errors:</h3>
                   <ul>
                     {Object.values(errors).map((e, i) => (
